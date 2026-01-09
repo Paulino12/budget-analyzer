@@ -17,6 +17,8 @@ from outstanding_orders_core import summarize_outstanding_orders_from_bytes
 from invoices_core import summarize_invoices_from_bytes
 
 
+
+
 # ---------- Pydantic response models (API contracts) ----------
 
 
@@ -67,6 +69,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:3000",
         "http://127.0.0.1:3000",
+        "https://chef-context.maryoctav.com", 
     ],
     allow_credentials=True,
     allow_methods=["*"],
