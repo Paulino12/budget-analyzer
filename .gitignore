@@ -1,0 +1,41 @@
+## `.gitignore`
+
+This covers:
+- Python virtualenv + caches
+- environment files
+- OS/IDE junk
+- (optional) Next.js build folders if you ever store frontend + backend in one repo
+
+```gitignore
+# ---------------------------------
+# Python
+# ---------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+pip-wheel-metadata/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ---------------------------------
+# Environment / secrets
+# ---------------------------------
+.env
+.env.*
+!.env.example
