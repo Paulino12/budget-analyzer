@@ -39,3 +39,18 @@ pip-wheel-metadata/
 .env
 .env.*
 !.env.example
+
+# ---------------------------------
+# OS / Editor
+# ---------------------------------
+.DS_Store
+Thumbs.db
+
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+
+.idea/
+
+# Logs
+*.log
