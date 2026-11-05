@@ -15,6 +15,7 @@ from invoices_core import export_rows_list_from_bytes
 
 from outstanding_orders_core import summarize_outstanding_orders_from_bytes
 from invoices_core import summarize_invoices_from_bytes
+from awaiting_orders_api import router as awaiting_orders_router
 
 
 
@@ -62,6 +63,7 @@ def money_str(d: Decimal) -> str:
 # ---------- FastAPI app ----------
 
 app = FastAPI(title="Henbrook eProc Analysis API", version="0.1.0")
+app.include_router(awaiting_orders_router)
 
 # In dev, you can allow your Next.js origin. Tighten this for production.
 app.add_middleware(

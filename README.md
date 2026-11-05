@@ -3,20 +3,22 @@
 This service powers the **Budget Analyzer** tool in `chef-context` (Next.js).  
 It parses exported PDFs from the eProcurement system and returns:
 
-1) **Outstanding Orders summary** (real-time committed spend)  
-2) **Invoices/Credit Notes summary** (what we actually pay; invoices minus credits)  
-3) **Invoices export to Excel** (one row per invoice/credit note for audit and pivots)
+1. **Outstanding Orders summary** (real-time committed spend)
+2. **Invoices/Credit Notes summary** (what we actually pay; invoices minus credits)
+3. **Invoices export to Excel** (one row per invoice/credit note for audit and pivots)
 
 ---
 
 ## What it does
 
 ### Outstanding Orders (PDF)
+
 - Parses the Outstanding Orders PDF and aggregates spend **per supplier**.
 - Detects **multiple Centre sections** inside the same PDF (Food + Bistro) and:
   - splits **Bidfood** into `Bidfood (FOOD)` / `Bidfood (BISTRO)` correctly.
 
 ### Invoices / Credit Notes (PDF)
+
 - Segments the PDF into individual documents (each invoice/credit note may span multiple pages).
 - Extracts per document:
   - Supplier
@@ -28,6 +30,7 @@ It parses exported PDFs from the eProcurement system and returns:
   - `Difference` = `Total - Credits` (net payable)
 
 ### Excel Export (Invoices PDF -> XLSX)
+
 - Produces a downloadable `.xlsx` file with **one row per document** (no combining).
 - Credits are exported as **negative amounts** to make Excel totals/pivots natural.
 - Columns:
@@ -68,9 +71,10 @@ README.md
 
 ## Installation (local)
 
-1) Create & activate a virtual environment:
+1. Create & activate a virtual environment:
 
 ### Windows (PowerShell)
+
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
@@ -80,10 +84,11 @@ Running locally
 
 Run the API on port 10001 (matches your Next.js BUDGET_BACKEND_URL):
 
-python -m uvicorn api:app --reload --port 10001
+python -m uvicorn api:app --reload --port 10000
 
 
 Open Swagger docs:
 
 http://127.0.0.1:10001/docs
 
+```
